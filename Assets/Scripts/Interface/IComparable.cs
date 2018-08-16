@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletTriggeredByFuze : BulletTriggerType {
-    Fuze activateFuze;
+public interface IComparable<T> {
+    int CompareTo(T other);
 }
