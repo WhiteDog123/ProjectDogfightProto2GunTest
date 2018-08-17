@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191648b6417398a49946212cfea5ef9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzle: {fileID: 4510928741288244}
   force: 1000
 --- !u!114 &114440830975140858
 MonoBehaviour:
@@ -138,6 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2999ac4977e2a4999b5d7973ba5f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 100
+  lifeTime: 10
   group: {fileID: 0}
-  damage: 100
+  damage: 1

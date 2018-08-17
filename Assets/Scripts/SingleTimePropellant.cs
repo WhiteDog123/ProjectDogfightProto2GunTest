@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SingleTimePropellant : Propellant {
     public float force;
-    public override void Propel()
+    public override void Propel(Vector3 direction)
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(muzzle.forward * force);
+        gameObject.GetComponent<Rigidbody>().AddForce(direction * force);
     }
 }

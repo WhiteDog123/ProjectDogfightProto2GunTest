@@ -3,27 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour {
-    public GameObject bulletToSpawn;
     public Transform muzzle;
+
+    [Header("Reload")]
+    public bool isUnlimited = false;
+    public bool isLoadedOnStart = true;
+    public int maxLoadedAmmoAmount;
+    public int currentLoadedAmmoAmount;
+
+    [Header("Fire")]
+    public GameObject bulletToSpawn;
+    public float delayOfFire;
+    private bool isCanFire = true;
 
     [SerializeField]
     private Group group;
 
-    void Awake()
+    protected void Awake()
     {
         group = gameObject.GetComponent<Group>();
+        if (isLoadedOnStart)
+            currentLoadedAmmoAmount = maxLoadedAmmoAmount;
     }
-	// Update is called once per frame
-	void Update ()
+
+    protected virtual IEnumerator OnPullTrigger()
     {
-		if(Input.GetButtonDown("Fire1"))
+        if (isCanFire)
+        {
+            Fire();
+            isCanFire = false;
+            yield return new WaitForSeconds(delayOfFire);
+            isCanFire = true;
+        }
+        else
+        {
+            yield return null;
+        }
+    }
+
+    public virtual void Fire()
+    {
+        if (currentLoadedAmmoAmount > 0 || isUnlimited)
         {
             var bullet =
-              Instantiate(bulletToSpawn, 
-              muzzle.position,
-              muzzle.rotation);
+                  Instantiate(bulletToSpawn,
+                  muzzle.position,
+                  muzzle.rotation);
             bullet.GetComponent<Bullet>().group = this.group;
-            bullet.GetComponent<Propellant>().Propel();
+            bullet.GetComponent<Propellant>().Propel(muzzle.forward);
+
+            if (!isUnlimited)
+            {
+                currentLoadedAmmoAmount--;
+            }
         }
-	}
+        else
+        {
+            return;
+        }
+    }
 }
