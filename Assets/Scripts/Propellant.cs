@@ -3,5 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Propellant : MonoBehaviour {
-    public virtual void Propel() { }
+    public Transform muzzle;
+    public virtual void Propel()
+    {
+    }
 }
