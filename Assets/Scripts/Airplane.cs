@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Airplane : MonoBehaviour, IDamageable
-{
+{ 
     private Health _health;
 
     void Awake()
