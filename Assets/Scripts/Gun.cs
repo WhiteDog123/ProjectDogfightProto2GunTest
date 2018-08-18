@@ -16,12 +16,18 @@ public class Gun : MonoBehaviour {
     public float delayOfFire;
     private bool isCanFire = true;
 
-    [SerializeField]
-    private Group group;
+    [HideInInspector]
+    public Group group;
+
+    public enum GUN_FIRE_RESULT
+    {
+        SUCCESS,
+        NO_AMMO,
+    }
+
 
     protected void Awake()
     {
-        group = gameObject.GetComponent<Group>();
         if (isLoadedOnStart)
             currentLoadedAmmoAmount = maxLoadedAmmoAmount;
     }
@@ -41,7 +47,7 @@ public class Gun : MonoBehaviour {
         }
     }
 
-    public virtual void Fire()
+    public virtual GUN_FIRE_RESULT Fire()
     {
         if (currentLoadedAmmoAmount > 0 || isUnlimited)
         {
@@ -56,10 +62,12 @@ public class Gun : MonoBehaviour {
             {
                 currentLoadedAmmoAmount--;
             }
+
+            return GUN_FIRE_RESULT.SUCCESS;
         }
         else
         {
-            return;
+            return GUN_FIRE_RESULT.NO_AMMO;
         }
     }
 }

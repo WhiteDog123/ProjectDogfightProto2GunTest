@@ -138,5 +138,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 10
+  damage: 10
   group: {fileID: 0}
-  damage: 1

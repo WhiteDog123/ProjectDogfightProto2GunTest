@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
     public float lifeTime;
-    public Group group;
     public float damage;
+
+    [HideInInspector]
+    public Group group;
+
     protected GameObject collideTarget;
 
     protected void Start()
