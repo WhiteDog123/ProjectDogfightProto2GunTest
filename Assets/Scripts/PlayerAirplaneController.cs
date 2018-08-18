@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAirplaneController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class PlayerAirplaneController : AirplaneController {
+	protected void Update () {
+        airplane.Rotate(Input.GetAxis("Vertical"));
+        airplane.KeepGoingForward();
+    }
 }

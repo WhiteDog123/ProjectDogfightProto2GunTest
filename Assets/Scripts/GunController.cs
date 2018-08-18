@@ -11,7 +11,7 @@ public class GunController : MonoBehaviour {
 
     protected virtual void Awake()
     {
-        group = gameObject.GetComponent<Group>();
+        //group = gameObject.GetComponent<Group>();
         for (int i = 0; i < gunsToControl.Count; i++)
         {
             gunsToControl[i].group = group;
