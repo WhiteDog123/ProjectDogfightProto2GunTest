@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerGunController : GunController {
     protected void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (isCanFire && Input.GetButton("Fire1"))
         {
-            StartCoroutine(PullTrigger());
+            PullTrigger();
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            StartCoroutine("Reload",gunsToControl);
+            StartCoroutine("Reload");
         }
     }
 }
