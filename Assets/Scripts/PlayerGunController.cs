@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerGunController : GunController {
     protected void Update()
     {
-        if (isCanFire && Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             PullTrigger();
         }

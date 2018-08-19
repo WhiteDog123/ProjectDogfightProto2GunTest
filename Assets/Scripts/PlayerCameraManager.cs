@@ -17,7 +17,9 @@ public class PlayerCameraManager : MonoBehaviour
     //움직임 발생된 뒤에 따라가져야하니까?
     void LateUpdate()
     {
-        transform.position = target.position + offset;
+        if (target != null)
+        {
+            transform.position = target.position + offset;
+        }
     }
-
 }

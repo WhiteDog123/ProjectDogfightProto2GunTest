@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GunController : MonoBehaviour {
-    private Group group;
+    [SerializeField]
+    protected Group group;
     protected bool isCanFire = true;
 
     public GunMasterPart gunToControl;
@@ -18,7 +19,10 @@ public class GunController : MonoBehaviour {
 
     protected virtual void PullTrigger()
     {
-        gunToControl.StartFireSequence(group);
+        if (isCanFire)
+        {
+            gunToControl.StartFireSequence(group);
+        }
     }
 
     protected virtual IEnumerator Reload()
