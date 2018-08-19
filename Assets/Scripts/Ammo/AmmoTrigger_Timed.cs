@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimedFuze : Fuze {
-    public ExplosiveBullet bullet;
+public class AmmoTrigger_Timed : AmmoTrigger {
     public float time;
 
     void Start()
     {
-        StartCoroutine("Ignite");
+        StartCoroutine("IgniteAfterTime");
     }
-    public override IEnumerator Ignite()
+    public IEnumerator IgniteAfterTime()
     {
         yield return new WaitForSeconds(time);
-        bullet.Explode();
+        ammoEffect.Effect(null);
     }
 }

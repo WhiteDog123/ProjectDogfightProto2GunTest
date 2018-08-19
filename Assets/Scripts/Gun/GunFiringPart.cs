@@ -10,8 +10,8 @@ public class GunFiringPart : MonoBehaviour {
               Instantiate(ammoToSpawn,
               muzzle.position,
               muzzle.rotation);
-        bullet.GetComponent<Bullet>().group = groupOfController;
-        bullet.GetComponent<Propellant>().Propel(muzzle.forward);
+        bullet.GetComponent<AmmoEffect>().group = groupOfController;
+        bullet.GetComponent<AmmoPropellant>().Propel(muzzle.forward);
 
         return GUN_FIRE_ORDER_RESULT.SPAWN_AMMO_SUCCESS;
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Propellant : MonoBehaviour {
+public class AmmoPropellant : MonoBehaviour {
     public virtual void Propel(Vector3 direction)
     {
     }

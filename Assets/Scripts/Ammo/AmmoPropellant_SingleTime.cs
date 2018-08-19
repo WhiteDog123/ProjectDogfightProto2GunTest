@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleTimePropellant : Propellant {
+public class AmmoPropellant_SingleTime : AmmoPropellant {
     public float force;
     public override void Propel(Vector3 direction)
     {
